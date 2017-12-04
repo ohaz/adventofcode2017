@@ -128,7 +128,31 @@ def sum_around(grid, x, y):
         print(x,y)
         exit()
 
+
+def day4():
+    content = None
+    valids_1 = 0
+    with open('day4_input.txt', 'r') as f:
+        content = f.read()
+    if content is None:
+        return 'Error'
+
+    for line in content.splitlines():
+        phrases = line.split()
+        if len(phrases) == len(set(phrases)):
+            valids_1 += 1
+
+    valids_2 = 0
+    for line in content.splitlines():
+        phrases = [sorted([y for y in x]) for x in line.split()]
+        tuples = [tuple(x) for x in phrases]
+        if len(phrases) == len(set(tuples)):
+            valids_2 += 1
+
+    return valids_1, valids_2
+
+
 if __name__ == '__main__':
-    days = [day1, day2, day3]
+    days = [day1, day2, day3, day4]
     for index, day in enumerate(days):
         print("Result for day {} is: {}".format(index, day()))
