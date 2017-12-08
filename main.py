@@ -12,4 +12,4 @@ if __name__ == '__main__':
             day5.calculate_solution, day6.calculate_solution, day7.calculate_solution, day8.calculate_solution]
 
     for index, day in enumerate(days):
-        print("Result for day {} is: {}".format(index, day()))
+        print("Result for day {} is: {}".format(index+1, day()))
