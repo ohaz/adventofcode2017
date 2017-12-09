@@ -6,10 +6,12 @@ from day5 import day5
 from day6 import day6
 from day7 import day7
 from day8 import day8
+from day9 import day9
 
 if __name__ == '__main__':
     days = [day1.calculate_solution, day2.calculate_solution, day3.calculate_solution, day4.calculate_solution,
-            day5.calculate_solution, day6.calculate_solution, day7.calculate_solution, day8.calculate_solution]
+            day5.calculate_solution, day6.calculate_solution, day7.calculate_solution, day8.calculate_solution,
+            day9.calculate_solution]
 
     for index, day in enumerate(days):
         print("Result for day {} is: {}".format(index+1, day()))
