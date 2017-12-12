@@ -15,7 +15,5 @@ from day12 import day12
 if __name__ == '__main__':
     days = [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12]
 
-    days = [day12]
-
     for index, day in enumerate(days):
         print("Result for day {} is: {}".format(index+1, day.calculate_solution()))
