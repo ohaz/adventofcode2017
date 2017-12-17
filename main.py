@@ -1,3 +1,6 @@
+import cProfile
+import pstats
+
 from day1 import day1
 from day2 import day2
 from day3 import day3
@@ -21,4 +24,12 @@ if __name__ == '__main__':
     days = [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14, day15, day16, day17]
 
     for index, day in enumerate(days):
-        print("Result for day {} is: {}".format(index+1, day.calculate_solution()))
+        pr = cProfile.Profile()
+        solution = pr.runcall(day.calculate_solution)
+        elapsed_time = None
+        ps = pstats.Stats(pr, stream=elapsed_time)
+        ps.sort_stats('cumulative')
+
+        print("Result for day {} is: {}".format(index+1, solution))
+        ps.print_stats()
+        print('--------------------------------------------------')
