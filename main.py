@@ -26,8 +26,7 @@ if __name__ == '__main__':
     for index, day in enumerate(days):
         pr = cProfile.Profile()
         solution = pr.runcall(day.calculate_solution)
-        elapsed_time = None
-        ps = pstats.Stats(pr, stream=elapsed_time)
+        ps = pstats.Stats(pr)
         ps.sort_stats('cumulative')
 
         print("Result for day {} is: {}".format(index+1, solution))
